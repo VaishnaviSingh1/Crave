@@ -22,6 +22,8 @@ A full-featured, cute and cozy bakery website built with modern web technologies
 
 ## 📁 Project Structure
 
+```
+
 crave/
 │
 ├── app/
@@ -52,10 +54,10 @@ crave/
 └── bunfig.toml          # Bun config (can include workspaces)
 
 
-
+```
 
 ## Features
-🍰 Cute, responsive UI for bakery lovers
+🍰 Responsive UI for bakery lovers
 
 📦 Modular monorepo (Bun-powered)
 
