@@ -1,0 +1,11 @@
+[workspace]
+root = true
+members = [
+  "app/frontend",
+  "app/backend",
+  "app/admin",
+  "packages/ui",
+  "packages/types",
+  "packages/zod-schemas",
+  "packages/hooks"
+]

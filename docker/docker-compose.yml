@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: crave
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  backend:
+    build: ../app/backend
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@db:5432/crave
+    depends_on:
+      - db
+
+  frontend:
+    build: ../app/frontend
+    ports:
+      - "5173:5173"
+
+volumes:
+  pgdata:
