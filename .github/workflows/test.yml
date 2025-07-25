@@ -25,8 +25,9 @@ jobs:
       - name: 🔧 Build Backend
         run: bun run --filter backend build
 
-      - name: 🔧 Build Frontend
-        run: bun run --filter frontend build
+      - name: 🔧 Build Frontend (from directory)
+        run: bun run build
+        working-directory: app/frontend
 
       - name: 🧪 Run Vitest (unit tests)
         run: bun run --filter backend test:unit
