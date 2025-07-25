@@ -19,8 +19,13 @@ jobs:
         with:
           bun-version: latest
 
-      - name: 📦 Install all workspace dependencies recursively
-        run: bun install --recursive
+      - name: 🔧 Dependencies Frontend
+        run: bun install
+        working-directory: app/frontend
+
+      - name: 🔧 Build backend
+        run: bun run build
+        working-directory: app/backend
 
       - name: 🔧 Build Backend
         run: bun run --filter backend build
