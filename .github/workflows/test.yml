@@ -19,8 +19,8 @@ jobs:
         with:
           bun-version: latest
 
-      - name: 📦 Install dependencies (monorepo)
-        run: bun install
+      - name: 📦 Install all workspace dependencies recursively
+        run: bun install --recursive
 
       - name: 🔧 Build Backend
         run: bun run --filter backend build
