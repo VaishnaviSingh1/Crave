@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🛎️ Checkout code
+        uses: actions/checkout@v4
+
+      - name: ⚡ Install Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: 📦 Install dependencies (monorepo)
+        run: bun install
+
+      - name: 🧹 Lint all apps
+        run: bun run lint
+
+      - name: 🔧 Build Backend
+        run: bun run --filter backend build
+
+      - name: 🔧 Build Frontend
+        run: bun run --filter frontend build
+
+      - name: 🧪 Run Vitest (unit tests)
+        run: bun run --filter backend test:unit
+
+      - name: 🎭 Run Playwright (e2e tests)
+        run: bunx playwright install && bun run --filter frontend test:e2e
+
+
+     
