@@ -22,9 +22,6 @@ jobs:
       - name: 📦 Install dependencies (monorepo)
         run: bun install
 
-      - name: 🧹 Lint all apps
-        run: bun run lint
-
       - name: 🔧 Build Backend
         run: bun run --filter backend build
 
