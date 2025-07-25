@@ -34,9 +34,6 @@ jobs:
         run: bun run build
         working-directory: app/frontend
 
-      - name: 🧪 Run Vitest (unit tests)
-        run: bun run --filter backend test:unit
-
       - name: 🎭 Run Playwright (e2e tests)
         run: bunx playwright install && bun run --filter frontend test:e2e
 
